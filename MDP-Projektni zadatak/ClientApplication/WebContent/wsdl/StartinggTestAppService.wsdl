@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://communication.etf.unibl.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://communication.etf.unibl.org" xmlns:intf="http://communication.etf.unibl.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://communication.etf.unibl.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="isTerminalExist">
+    <complexType>
+     <sequence>
+      <element name="terminalName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isTerminalExistResponse">
+    <complexType>
+     <sequence>
+      <element name="isTerminalExistReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isEnteranceOrExitExistAndActive">
+    <complexType>
+     <sequence>
+      <element name="entranceOrExitId" type="xsd:string"/>
+      <element name="terminalId" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isEnteranceOrExitExistAndActiveResponse">
+    <complexType>
+     <sequence>
+      <element name="isEnteranceOrExitExistAndActiveReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="isTerminalExistResponse">
+
+      <wsdl:part element="impl:isTerminalExistResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isTerminalExistRequest">
+
+      <wsdl:part element="impl:isTerminalExist" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isEnteranceOrExitExistAndActiveRequest">
+
+      <wsdl:part element="impl:isEnteranceOrExitExistAndActive" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isEnteranceOrExitExistAndActiveResponse">
+
+      <wsdl:part element="impl:isEnteranceOrExitExistAndActiveResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="StartinggTestAppService">
+
+      <wsdl:operation name="isTerminalExist">
+
+         <wsdl:input message="impl:isTerminalExistRequest" name="isTerminalExistRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isTerminalExistResponse" name="isTerminalExistResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isEnteranceOrExitExistAndActive">
+
+         <wsdl:input message="impl:isEnteranceOrExitExistAndActiveRequest" name="isEnteranceOrExitExistAndActiveRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isEnteranceOrExitExistAndActiveResponse" name="isEnteranceOrExitExistAndActiveResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="StartinggTestAppServiceSoapBinding" type="impl:StartinggTestAppService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="isTerminalExist">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isTerminalExistRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isTerminalExistResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isEnteranceOrExitExistAndActive">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isEnteranceOrExitExistAndActiveRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isEnteranceOrExitExistAndActiveResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="StartinggTestAppServiceService">
+
+      <wsdl:port binding="impl:StartinggTestAppServiceSoapBinding" name="StartinggTestAppService">
+
+         <wsdlsoap:address location="http://localhost:8080/ClientApplication/services/StartinggTestAppService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

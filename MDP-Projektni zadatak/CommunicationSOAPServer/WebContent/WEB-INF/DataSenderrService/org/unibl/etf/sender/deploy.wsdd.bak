@@ -1,0 +1,55 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from DataSenderrService WSDL service -->
+
+  <service name="DataSenderr" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://sender.etf.unibl.org"/>
+      <parameter name="wsdlServiceElement" value="DataSenderrService"/>
+      <parameter name="schemaQualified" value="http://sender.etf.unibl.org"/>
+      <parameter name="wsdlServicePort" value="DataSenderr"/>
+      <parameter name="className" value="org.unibl.etf.sender.DataSenderrSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="DataSenderr"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="daLiPostojiTerminal" qname="operNS:daLiPostojiTerminal" xmlns:operNS="http://sender.etf.unibl.org" returnQName="retNS:daLiPostojiTerminalReturn" xmlns:retNS="http://sender.etf.unibl.org" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:terminalName" xmlns:pns="http://sender.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="dodajPodatkeZaDodavanjeFajlovaa" qname="operNS:dodajPodatkeZaDodavanjeFajlovaa" xmlns:operNS="http://sender.etf.unibl.org" soapAction="" >
+        <parameter qname="pns:idUlazaIzlaza" xmlns:pns="http://sender.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:jmb" xmlns:pns="http://sender.etf.unibl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:podaci" xmlns:pns="http://sender.etf.unibl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:filename" xmlns:pns="http://sender.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="daLiPostojiAktivanUlazIzlaz" qname="operNS:daLiPostojiAktivanUlazIzlaz" xmlns:operNS="http://sender.etf.unibl.org" returnQName="retNS:daLiPostojiAktivanUlazIzlazReturn" xmlns:retNS="http://sender.etf.unibl.org" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idUlazaIzlaza" xmlns:pns="http://sender.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idTerminala" xmlns:pns="http://sender.etf.unibl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="imaLiStaZaTestnuAplikaciju" qname="operNS:imaLiStaZaTestnuAplikaciju" xmlns:operNS="http://sender.etf.unibl.org" returnQName="retNS:imaLiStaZaTestnuAplikacijuReturn" xmlns:retNS="http://sender.etf.unibl.org" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:jmb" xmlns:pns="http://sender.etf.unibl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="dodajPodatkeZaSlanjeNaCarinskuKontrolu" qname="operNS:dodajPodatkeZaSlanjeNaCarinskuKontrolu" xmlns:operNS="http://sender.etf.unibl.org" soapAction="" >
+        <parameter qname="pns:idUlazaIzlaza" xmlns:pns="http://sender.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:jmb" xmlns:pns="http://sender.etf.unibl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ime" xmlns:pns="http://sender.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:prezime" xmlns:pns="http://sender.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:daLiJeNaPotjernici" xmlns:pns="http://sender.etf.unibl.org" type="tns:boolean" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="dodajPodatkeZaSlanjeNaPolicijskuKontrolu" qname="operNS:dodajPodatkeZaSlanjeNaPolicijskuKontrolu" xmlns:operNS="http://sender.etf.unibl.org" soapAction="" >
+        <parameter qname="pns:idUlazaIzlaza" xmlns:pns="http://sender.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:jmb" xmlns:pns="http://sender.etf.unibl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ime" xmlns:pns="http://sender.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:prezime" xmlns:pns="http://sender.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="imaLiStaZaTestnuAplikaciju daLiPostojiTerminal dodajPodatkeZaSlanjeNaCarinskuKontrolu daLiPostojiAktivanUlazIzlaz dodajPodatkeZaDodavanjeFajlovaa dodajPodatkeZaSlanjeNaPolicijskuKontrolu"/>
+
+  </service>
+</deployment>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.unibl.etf.controller.GetAllMessagesController">
+   <children>
+      <TableView fx:id="allMessagesTableView" layoutX="-1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="senderColumn" prefWidth="106.0" text="Pošiljalac" />
+          <TableColumn fx:id="contentColumn" prefWidth="369.0" text="Tekst poruke" />
+            <TableColumn fx:id="dateAndTimeColumn" prefWidth="124.0" text="Datum i vrijeme" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

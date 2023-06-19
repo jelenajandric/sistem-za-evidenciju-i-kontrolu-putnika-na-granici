@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://soapservice.etf.unibl.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://soapservice.etf.unibl.org" xmlns:intf="http://soapservice.etf.unibl.org" xmlns:tns1="http://model.etf.unibl.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://soapservice.etf.unibl.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.etf.unibl.org"/>
+   <element name="createTerminal">
+    <complexType>
+     <sequence>
+      <element name="t" type="tns1:Terminal"/>
+      <element name="creatingEnterancesAndExits" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createTerminalResponse">
+    <complexType>
+     <sequence>
+      <element name="createTerminalReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteTerminal">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteTerminalResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteTerminalReturn" type="tns1:Terminal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateTerminal">
+    <complexType>
+     <sequence>
+      <element name="t" type="tns1:Terminal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateTerminalResponse">
+    <complexType>
+     <sequence>
+      <element name="updateTerminalReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="allTerminals">
+    <complexType/>
+   </element>
+   <element name="allTerminalsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="allTerminalsReturn" type="tns1:Terminal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTerminal">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTerminalResponse">
+    <complexType>
+     <sequence>
+      <element name="getTerminalReturn" type="tns1:Terminal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isTerminalExisting">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isTerminalExistingResponse">
+    <complexType>
+     <sequence>
+      <element name="isTerminalExistingReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isEnteranceOrExitExists">
+    <complexType>
+     <sequence>
+      <element name="enteranceOrExitId" type="xsd:string"/>
+      <element name="terminalId" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isEnteranceOrExitExistsResponse">
+    <complexType>
+     <sequence>
+      <element name="isEnteranceOrExitExistsReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.etf.unibl.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Terminal">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="numOfEnterances" type="xsd:int"/>
+     <element name="numOfExits" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="isTerminalExistingResponse">
+
+      <wsdl:part element="impl:isTerminalExistingResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isEnteranceOrExitExistsResponse">
+
+      <wsdl:part element="impl:isEnteranceOrExitExistsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="allTerminalsResponse">
+
+      <wsdl:part element="impl:allTerminalsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTerminalRequest">
+
+      <wsdl:part element="impl:getTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTerminalResponse">
+
+      <wsdl:part element="impl:getTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createTerminalResponse">
+
+      <wsdl:part element="impl:createTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isTerminalExistingRequest">
+
+      <wsdl:part element="impl:isTerminalExisting" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteTerminalRequest">
+
+      <wsdl:part element="impl:deleteTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateTerminalRequest">
+
+      <wsdl:part element="impl:updateTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateTerminalResponse">
+
+      <wsdl:part element="impl:updateTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isEnteranceOrExitExistsRequest">
+
+      <wsdl:part element="impl:isEnteranceOrExitExists" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="allTerminalsRequest">
+
+      <wsdl:part element="impl:allTerminals" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createTerminalRequest">
+
+      <wsdl:part element="impl:createTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteTerminalResponse">
+
+      <wsdl:part element="impl:deleteTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TerminalService">
+
+      <wsdl:operation name="createTerminal">
+
+         <wsdl:input message="impl:createTerminalRequest" name="createTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createTerminalResponse" name="createTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteTerminal">
+
+         <wsdl:input message="impl:deleteTerminalRequest" name="deleteTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteTerminalResponse" name="deleteTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateTerminal">
+
+         <wsdl:input message="impl:updateTerminalRequest" name="updateTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateTerminalResponse" name="updateTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="allTerminals">
+
+         <wsdl:input message="impl:allTerminalsRequest" name="allTerminalsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:allTerminalsResponse" name="allTerminalsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTerminal">
+
+         <wsdl:input message="impl:getTerminalRequest" name="getTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTerminalResponse" name="getTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isTerminalExisting">
+
+         <wsdl:input message="impl:isTerminalExistingRequest" name="isTerminalExistingRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isTerminalExistingResponse" name="isTerminalExistingResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isEnteranceOrExitExists">
+
+         <wsdl:input message="impl:isEnteranceOrExitExistsRequest" name="isEnteranceOrExitExistsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isEnteranceOrExitExistsResponse" name="isEnteranceOrExitExistsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TerminalServiceSoapBinding" type="impl:TerminalService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="createTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="allTerminals">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="allTerminalsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="allTerminalsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isTerminalExisting">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isTerminalExistingRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isTerminalExistingResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isEnteranceOrExitExists">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isEnteranceOrExitExistsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isEnteranceOrExitExistsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TerminalServiceService">
+
+      <wsdl:port binding="impl:TerminalServiceSoapBinding" name="TerminalService">
+
+         <wsdlsoap:address location="http://localhost:8080/CentralRegistry/services/TerminalService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

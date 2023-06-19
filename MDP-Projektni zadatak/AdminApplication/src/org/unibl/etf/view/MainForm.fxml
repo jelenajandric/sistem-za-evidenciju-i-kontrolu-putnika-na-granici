@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="582.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.unibl.etf.controller.MainFormController">
+   <children>
+      <Pane layoutX="-179.0" layoutY="-197.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="211.0" layoutY="27.0" prefHeight="33.0" prefWidth="230.0" text="Dobrodošli na administratorsku aplikaciju!" />
+      <Button fx:id="getAllTerminalsButton" layoutX="97.0" layoutY="101.0" mnemonicParsing="false" onAction="#actionGetAllTerminals" prefHeight="33.0" prefWidth="155.0" text="Prikaz svih terminala" />
+      <Button fx:id="addNewTerminalButton" layoutX="97.0" layoutY="153.0" mnemonicParsing="false" onAction="#actionAddNewTerminal" prefHeight="33.0" prefWidth="155.0" text="Dodaj novi terminal" />
+      <Button fx:id="updateTerminalButton" layoutX="97.0" layoutY="212.0" mnemonicParsing="false" onAction="#actionUpdateTerminal" prefHeight="33.0" prefWidth="155.0" text="Ažuriraj termial" />
+      <Button fx:id="deleteTerminalButton" layoutX="43.0" layoutY="275.0" mnemonicParsing="false" onAction="#actionDeleteTerminal" prefHeight="33.0" prefWidth="155.0" text="Obriši terminal" />
+      <TextField fx:id="terminalIdTextField" layoutX="211.0" layoutY="280.0" prefHeight="25.0" prefWidth="81.0" promptText="id terminala" />
+      <Label layoutX="71.0" layoutY="318.0" prefHeight="43.0" prefWidth="210.0" text="Unos polja id terminala je obavezan ukoiko birate opciju brisanja terminala " textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="addNewClientAccountButton" layoutX="407.0" layoutY="93.0" mnemonicParsing="false" onAction="#actionAddNewClientAccount" prefHeight="33.0" prefWidth="178.0" text="Dodaj novi klijentski nalog" />
+      <Button fx:id="getAllClientAccountsButton" layoutX="407.0" layoutY="153.0" mnemonicParsing="false" onAction="#actionGetAllClientAccounts" prefHeight="33.0" prefWidth="178.0" text="Pregledaj sve klijentske naloge" />
+      <Button fx:id="deleteClientAccountButton" layoutX="407.0" layoutY="212.0" mnemonicParsing="false" onAction="#actionDeleteClientAccount" prefHeight="33.0" prefWidth="178.0" text="Obriši klijentski nalog" />
+      <TextField fx:id="usernameTextField" layoutX="422.0" layoutY="250.0" promptText="korisničko ime" />
+      <Button fx:id="getAllDetectedPersonsFromTheWarrantButton" layoutX="123.0" layoutY="439.0" mnemonicParsing="false" onAction="#actionGetAllDetectedPersonsFromTheWarrant" prefHeight="64.0" prefWidth="177.0" text="Prikaz detektovanih osoba sa potjernice" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="savePersonsDocsButton" layoutX="408.0" layoutY="439.0" mnemonicParsing="false" onAction="#actionSavePersonsDocs" prefHeight="64.0" prefWidth="177.0" text="Preuzmi dokumente procesiranih osoba" textAlignment="CENTER" wrapText="true" />
+   </children>
+</AnchorPane>

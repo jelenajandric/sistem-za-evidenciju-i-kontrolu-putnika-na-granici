@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://soapservice.etf.unibl.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://soapservice.etf.unibl.org" xmlns:intf="http://soapservice.etf.unibl.org" xmlns:tns1="http://model.etf.unibl.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://soapservice.etf.unibl.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.etf.unibl.org"/>
+   <element name="savePerson">
+    <complexType>
+     <sequence>
+      <element name="person" type="tns1:Person"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="savePersonResponse">
+    <complexType>
+     <sequence>
+      <element name="savePersonReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getRecordsOfChackedPersons">
+    <complexType/>
+   </element>
+   <element name="getRecordsOfChackedPersonsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getRecordsOfChackedPersonsReturn" type="tns1:Person"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.etf.unibl.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Person">
+    <sequence>
+     <element name="itOnTheWantedList" type="xsd:boolean"/>
+     <element name="jmbg" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="surname" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getRecordsOfChackedPersonsResponse">
+
+      <wsdl:part element="impl:getRecordsOfChackedPersonsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="savePersonRequest">
+
+      <wsdl:part element="impl:savePerson" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRecordsOfChackedPersonsRequest">
+
+      <wsdl:part element="impl:getRecordsOfChackedPersons" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="savePersonResponse">
+
+      <wsdl:part element="impl:savePersonResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SavingInfoAboutPersonServicee">
+
+      <wsdl:operation name="savePerson">
+
+         <wsdl:input message="impl:savePersonRequest" name="savePersonRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:savePersonResponse" name="savePersonResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRecordsOfChackedPersons">
+
+         <wsdl:input message="impl:getRecordsOfChackedPersonsRequest" name="getRecordsOfChackedPersonsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getRecordsOfChackedPersonsResponse" name="getRecordsOfChackedPersonsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SavingInfoAboutPersonServiceeSoapBinding" type="impl:SavingInfoAboutPersonServicee">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="savePerson">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="savePersonRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="savePersonResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRecordsOfChackedPersons">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getRecordsOfChackedPersonsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getRecordsOfChackedPersonsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SavingInfoAboutPersonServiceeService">
+
+      <wsdl:port binding="impl:SavingInfoAboutPersonServiceeSoapBinding" name="SavingInfoAboutPersonServicee">
+
+         <wsdlsoap:address location="http://localhost:8080/CentralRegistry/services/SavingInfoAboutPersonServicee"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

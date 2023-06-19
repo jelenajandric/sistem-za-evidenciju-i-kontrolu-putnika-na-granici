@@ -1,0 +1,39 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SavingInfoAboutPersonServiceeService WSDL service -->
+
+  <service name="SavingInfoAboutPersonServicee" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://soapservice.etf.unibl.org"/>
+      <parameter name="wsdlServiceElement" value="SavingInfoAboutPersonServiceeService"/>
+      <parameter name="schemaQualified" value="http://soapservice.etf.unibl.org,http://model.etf.unibl.org"/>
+      <parameter name="wsdlServicePort" value="SavingInfoAboutPersonServicee"/>
+      <parameter name="className" value="org.unibl.etf.soapservice.SavingInfoAboutPersonServiceeSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="SavingInfoAboutPersonServicee"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="savePerson" qname="operNS:savePerson" xmlns:operNS="http://soapservice.etf.unibl.org" returnQName="retNS:savePersonReturn" xmlns:retNS="http://soapservice.etf.unibl.org" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:person" xmlns:pns="http://soapservice.etf.unibl.org" type="tns:Person" xmlns:tns="http://model.etf.unibl.org"/>
+      </operation>
+      <operation name="getRecordsOfChackedPersons" qname="operNS:getRecordsOfChackedPersons" xmlns:operNS="http://soapservice.etf.unibl.org" returnQName="retNS:getRecordsOfChackedPersonsReturn" xmlns:retNS="http://soapservice.etf.unibl.org" returnType="rtns:Person" xmlns:rtns="http://model.etf.unibl.org" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getRecordsOfChackedPersons savePerson"/>
+
+      <typeMapping
+        xmlns:ns="http://model.etf.unibl.org"
+        qname="ns:Person"
+        type="java:org.unibl.etf.model.Person"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

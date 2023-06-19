@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="467.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.unibl.etf.controller.GetAllTerminalsController">
+   <children>
+      <TableView fx:id="allTerminalsTableView" layoutX="-4.0" prefHeight="427.0" prefWidth="475.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="90.0" text="ID" />
+          <TableColumn fx:id="nameColumn" prefWidth="131.0" text="Naziv" />
+            <TableColumn fx:id="numOfEnterancesColumn" prefWidth="120.0" text="Broj ulaza" />
+            <TableColumn fx:id="numOfExitsColumn" prefWidth="133.0" text="Broj izlaza" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="461.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.unibl.etf.controller.GetAllDetectedPersonsFromTheWarrantController">
+   <children>
+      <TableView fx:id="allDetectedPersonsFromTheWarrantTable" layoutX="-1.0" layoutY="-1.0" prefHeight="426.0" prefWidth="461.0">
+        <columns>
+          <TableColumn fx:id="jmbColumn" prefWidth="139.0" text="JMB" />
+          <TableColumn fx:id="nameColumn" prefWidth="149.0" text="Ime" />
+          <TableColumn fx:id="surnameColumn" minWidth="0.0" prefWidth="171.0" text="Prezime" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

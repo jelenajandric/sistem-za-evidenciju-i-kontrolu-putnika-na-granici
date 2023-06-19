@@ -1,0 +1,56 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TerminalServiceService WSDL service -->
+
+  <service name="TerminalService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://soapservice.etf.unibl.org"/>
+      <parameter name="wsdlServiceElement" value="TerminalServiceService"/>
+      <parameter name="schemaQualified" value="http://soapservice.etf.unibl.org,http://model.etf.unibl.org"/>
+      <parameter name="wsdlServicePort" value="TerminalService"/>
+      <parameter name="className" value="org.unibl.etf.soapservice.TerminalServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="TerminalService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="createTerminal" qname="operNS:createTerminal" xmlns:operNS="http://soapservice.etf.unibl.org" returnQName="retNS:createTerminalReturn" xmlns:retNS="http://soapservice.etf.unibl.org" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:t" xmlns:pns="http://soapservice.etf.unibl.org" type="tns:Terminal" xmlns:tns="http://model.etf.unibl.org"/>
+        <parameter qname="pns:creatingEnterancesAndExits" xmlns:pns="http://soapservice.etf.unibl.org" type="tns:boolean" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="deleteTerminal" qname="operNS:deleteTerminal" xmlns:operNS="http://soapservice.etf.unibl.org" returnQName="retNS:deleteTerminalReturn" xmlns:retNS="http://soapservice.etf.unibl.org" returnType="rtns:Terminal" xmlns:rtns="http://model.etf.unibl.org" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://soapservice.etf.unibl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="updateTerminal" qname="operNS:updateTerminal" xmlns:operNS="http://soapservice.etf.unibl.org" returnQName="retNS:updateTerminalReturn" xmlns:retNS="http://soapservice.etf.unibl.org" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:t" xmlns:pns="http://soapservice.etf.unibl.org" type="tns:Terminal" xmlns:tns="http://model.etf.unibl.org"/>
+      </operation>
+      <operation name="allTerminals" qname="operNS:allTerminals" xmlns:operNS="http://soapservice.etf.unibl.org" returnQName="retNS:allTerminalsReturn" xmlns:retNS="http://soapservice.etf.unibl.org" returnType="rtns:Terminal" xmlns:rtns="http://model.etf.unibl.org" soapAction="" >
+      </operation>
+      <operation name="getTerminal" qname="operNS:getTerminal" xmlns:operNS="http://soapservice.etf.unibl.org" returnQName="retNS:getTerminalReturn" xmlns:retNS="http://soapservice.etf.unibl.org" returnType="rtns:Terminal" xmlns:rtns="http://model.etf.unibl.org" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://soapservice.etf.unibl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isTerminalExisting" qname="operNS:isTerminalExisting" xmlns:operNS="http://soapservice.etf.unibl.org" returnQName="retNS:isTerminalExistingReturn" xmlns:retNS="http://soapservice.etf.unibl.org" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://soapservice.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isEnteranceOrExitExists" qname="operNS:isEnteranceOrExitExists" xmlns:operNS="http://soapservice.etf.unibl.org" returnQName="retNS:isEnteranceOrExitExistsReturn" xmlns:retNS="http://soapservice.etf.unibl.org" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:enteranceOrExitId" xmlns:pns="http://soapservice.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:terminalId" xmlns:pns="http://soapservice.etf.unibl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="updateTerminal isEnteranceOrExitExists getTerminal allTerminals isTerminalExisting createTerminal deleteTerminal"/>
+
+      <typeMapping
+        xmlns:ns="http://model.etf.unibl.org"
+        qname="ns:Terminal"
+        type="java:org.unibl.etf.model.Terminal"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

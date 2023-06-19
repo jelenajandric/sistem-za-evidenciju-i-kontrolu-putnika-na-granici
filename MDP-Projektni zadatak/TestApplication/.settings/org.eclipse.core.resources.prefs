@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/org/unibl/etf/model/Terminal.java=UTF-8
+encoding//src/org/unibl/etf/sender/DataSenderr.java=UTF-8
+encoding//src/org/unibl/etf/sender/DataSenderrService.java=UTF-8
+encoding//src/org/unibl/etf/sender/DataSenderrServiceLocator.java=UTF-8
+encoding//src/org/unibl/etf/sender/DataSenderrSoapBindingStub.java=UTF-8
+encoding//src/org/unibl/etf/soapservice/TerminalService.java=UTF-8
+encoding//src/org/unibl/etf/soapservice/TerminalServiceService.java=UTF-8
+encoding//src/org/unibl/etf/soapservice/TerminalServiceServiceLocator.java=UTF-8
+encoding//src/org/unibl/etf/soapservice/TerminalServiceSoapBindingStub.java=UTF-8

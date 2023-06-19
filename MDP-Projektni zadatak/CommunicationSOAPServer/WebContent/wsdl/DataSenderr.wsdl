@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://sender.etf.unibl.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://sender.etf.unibl.org" xmlns:intf="http://sender.etf.unibl.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://sender.etf.unibl.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="daLiPostojiTerminal">
+    <complexType>
+     <sequence>
+      <element name="terminalName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="daLiPostojiTerminalResponse">
+    <complexType>
+     <sequence>
+      <element name="daLiPostojiTerminalReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dodajPodatkeZaDodavanjeFajlovaa">
+    <complexType>
+     <sequence>
+      <element name="idUlazaIzlaza" type="xsd:string"/>
+      <element name="jmb" type="xsd:int"/>
+      <element maxOccurs="unbounded" name="podaci" type="xsd:int"/>
+      <element name="filename" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dodajPodatkeZaDodavanjeFajlovaaResponse">
+    <complexType/>
+   </element>
+   <element name="daLiPostojiAktivanUlazIzlaz">
+    <complexType>
+     <sequence>
+      <element name="idUlazaIzlaza" type="xsd:string"/>
+      <element name="idTerminala" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="daLiPostojiAktivanUlazIzlazResponse">
+    <complexType>
+     <sequence>
+      <element name="daLiPostojiAktivanUlazIzlazReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="imaLiStaZaTestnuAplikaciju">
+    <complexType>
+     <sequence>
+      <element name="jmb" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="imaLiStaZaTestnuAplikacijuResponse">
+    <complexType>
+     <sequence>
+      <element name="imaLiStaZaTestnuAplikacijuReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dodajPodatkeZaSlanjeNaCarinskuKontrolu">
+    <complexType>
+     <sequence>
+      <element name="idUlazaIzlaza" type="xsd:string"/>
+      <element name="jmb" type="xsd:int"/>
+      <element name="ime" type="xsd:string"/>
+      <element name="prezime" type="xsd:string"/>
+      <element name="daLiJeNaPotjernici" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dodajPodatkeZaSlanjeNaCarinskuKontroluResponse">
+    <complexType/>
+   </element>
+   <element name="dodajPodatkeZaSlanjeNaPolicijskuKontrolu">
+    <complexType>
+     <sequence>
+      <element name="idUlazaIzlaza" type="xsd:string"/>
+      <element name="jmb" type="xsd:int"/>
+      <element name="ime" type="xsd:string"/>
+      <element name="prezime" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dodajPodatkeZaSlanjeNaPolicijskuKontroluResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="daLiPostojiTerminalRequest">
+
+      <wsdl:part element="impl:daLiPostojiTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="imaLiStaZaTestnuAplikacijuResponse">
+
+      <wsdl:part element="impl:imaLiStaZaTestnuAplikacijuResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dodajPodatkeZaDodavanjeFajlovaaResponse">
+
+      <wsdl:part element="impl:dodajPodatkeZaDodavanjeFajlovaaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dodajPodatkeZaSlanjeNaCarinskuKontroluRequest">
+
+      <wsdl:part element="impl:dodajPodatkeZaSlanjeNaCarinskuKontrolu" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="daLiPostojiAktivanUlazIzlazRequest">
+
+      <wsdl:part element="impl:daLiPostojiAktivanUlazIzlaz" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="imaLiStaZaTestnuAplikacijuRequest">
+
+      <wsdl:part element="impl:imaLiStaZaTestnuAplikaciju" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="daLiPostojiAktivanUlazIzlazResponse">
+
+      <wsdl:part element="impl:daLiPostojiAktivanUlazIzlazResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="daLiPostojiTerminalResponse">
+
+      <wsdl:part element="impl:daLiPostojiTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dodajPodatkeZaDodavanjeFajlovaaRequest">
+
+      <wsdl:part element="impl:dodajPodatkeZaDodavanjeFajlovaa" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dodajPodatkeZaSlanjeNaCarinskuKontroluResponse">
+
+      <wsdl:part element="impl:dodajPodatkeZaSlanjeNaCarinskuKontroluResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dodajPodatkeZaSlanjeNaPolicijskuKontroluRequest">
+
+      <wsdl:part element="impl:dodajPodatkeZaSlanjeNaPolicijskuKontrolu" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dodajPodatkeZaSlanjeNaPolicijskuKontroluResponse">
+
+      <wsdl:part element="impl:dodajPodatkeZaSlanjeNaPolicijskuKontroluResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="DataSenderr">
+
+      <wsdl:operation name="daLiPostojiTerminal">
+
+         <wsdl:input message="impl:daLiPostojiTerminalRequest" name="daLiPostojiTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:daLiPostojiTerminalResponse" name="daLiPostojiTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dodajPodatkeZaDodavanjeFajlovaa">
+
+         <wsdl:input message="impl:dodajPodatkeZaDodavanjeFajlovaaRequest" name="dodajPodatkeZaDodavanjeFajlovaaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:dodajPodatkeZaDodavanjeFajlovaaResponse" name="dodajPodatkeZaDodavanjeFajlovaaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="daLiPostojiAktivanUlazIzlaz">
+
+         <wsdl:input message="impl:daLiPostojiAktivanUlazIzlazRequest" name="daLiPostojiAktivanUlazIzlazRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:daLiPostojiAktivanUlazIzlazResponse" name="daLiPostojiAktivanUlazIzlazResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="imaLiStaZaTestnuAplikaciju">
+
+         <wsdl:input message="impl:imaLiStaZaTestnuAplikacijuRequest" name="imaLiStaZaTestnuAplikacijuRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:imaLiStaZaTestnuAplikacijuResponse" name="imaLiStaZaTestnuAplikacijuResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dodajPodatkeZaSlanjeNaCarinskuKontrolu">
+
+         <wsdl:input message="impl:dodajPodatkeZaSlanjeNaCarinskuKontroluRequest" name="dodajPodatkeZaSlanjeNaCarinskuKontroluRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:dodajPodatkeZaSlanjeNaCarinskuKontroluResponse" name="dodajPodatkeZaSlanjeNaCarinskuKontroluResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dodajPodatkeZaSlanjeNaPolicijskuKontrolu">
+
+         <wsdl:input message="impl:dodajPodatkeZaSlanjeNaPolicijskuKontroluRequest" name="dodajPodatkeZaSlanjeNaPolicijskuKontroluRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:dodajPodatkeZaSlanjeNaPolicijskuKontroluResponse" name="dodajPodatkeZaSlanjeNaPolicijskuKontroluResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DataSenderrSoapBinding" type="impl:DataSenderr">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="daLiPostojiTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="daLiPostojiTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="daLiPostojiTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dodajPodatkeZaDodavanjeFajlovaa">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="dodajPodatkeZaDodavanjeFajlovaaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="dodajPodatkeZaDodavanjeFajlovaaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="daLiPostojiAktivanUlazIzlaz">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="daLiPostojiAktivanUlazIzlazRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="daLiPostojiAktivanUlazIzlazResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="imaLiStaZaTestnuAplikaciju">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="imaLiStaZaTestnuAplikacijuRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="imaLiStaZaTestnuAplikacijuResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dodajPodatkeZaSlanjeNaCarinskuKontrolu">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="dodajPodatkeZaSlanjeNaCarinskuKontroluRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="dodajPodatkeZaSlanjeNaCarinskuKontroluResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dodajPodatkeZaSlanjeNaPolicijskuKontrolu">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="dodajPodatkeZaSlanjeNaPolicijskuKontroluRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="dodajPodatkeZaSlanjeNaPolicijskuKontroluResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DataSenderrService">
+
+      <wsdl:port binding="impl:DataSenderrSoapBinding" name="DataSenderr">
+
+         <wsdlsoap:address location="http://localhost:8080/CommunicationSOAPServer/services/DataSenderr"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

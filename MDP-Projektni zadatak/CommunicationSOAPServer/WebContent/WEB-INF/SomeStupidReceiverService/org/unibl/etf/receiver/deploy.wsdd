@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SomeStupidReceiverService WSDL service -->
+
+  <service name="SomeStupidReceiver" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://receiver.etf.unibl.org"/>
+      <parameter name="wsdlServiceElement" value="SomeStupidReceiverService"/>
+      <parameter name="schemaQualified" value="http://receiver.etf.unibl.org"/>
+      <parameter name="wsdlServicePort" value="SomeStupidReceiver"/>
+      <parameter name="className" value="org.unibl.etf.receiver.SomeStupidReceiver"/>
+      <parameter name="wsdlPortType" value="SomeStupidReceiver"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://receiver.etf.unibl.org" xmlns:retNS="http://receiver.etf.unibl.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="imaLiStaZaPolicijskuKontrolu" qname="operNS:imaLiStaZaPolicijskuKontrolu" returnQName="retNS:imaLiStaZaPolicijskuKontroluReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idITipUlazaIzlaza" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://receiver.etf.unibl.org" xmlns:retNS="http://receiver.etf.unibl.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="imaLiStaZaCarinskuKontrolu" qname="operNS:imaLiStaZaCarinskuKontrolu" returnQName="retNS:imaLiStaZaCarinskuKontroluReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idITipUlazaIzlaza" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://receiver.etf.unibl.org" name="dodajOdgovorOdPolicijskeKontrole" qname="operNS:dodajOdgovorOdPolicijskeKontrole" soapAction="">
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:jmb" type="tns:int"/>
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idUlazaIzlaza" type="tns:string"/>
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:daLiProlaziPolicijskuKontrolu" type="tns:boolean"/>
+      </operation>
+      <operation xmlns:operNS="http://receiver.etf.unibl.org" name="dodajOdgovorOdDodavanjaFajlaa" qname="operNS:dodajOdgovorOdDodavanjaFajlaa" soapAction="">
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:jmb" type="tns:int"/>
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idUlazaIzlaza" type="tns:string"/>
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:daLiJeDodatFajl" type="tns:boolean"/>
+      </operation>
+      <operation xmlns:operNS="http://receiver.etf.unibl.org" name="dodajOdgovorOdCarinskeKontrole" qname="operNS:dodajOdgovorOdCarinskeKontrole" soapAction="">
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:jmb" type="tns:int"/>
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idUlazaIzlaza" type="tns:string"/>
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:daLiProlaziCarinskuKontrolu" type="tns:boolean"/>
+      </operation>
+      <operation xmlns:operNS="http://receiver.etf.unibl.org" name="dodajOdgovorKadJeObustavaSaobracaja" qname="operNS:dodajOdgovorKadJeObustavaSaobracaja" soapAction="">
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:jmb" type="tns:int"/>
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idUlazaIzlaza" type="tns:string"/>
+        <parameter xmlns:pns="http://receiver.etf.unibl.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:poruka" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="dodajOdgovorOdPolicijskeKontrole dodajOdgovorOdCarinskeKontrole imaLiStaZaCarinskuKontrolu dodajOdgovorKadJeObustavaSaobracaja dodajOdgovorOdDodavanjaFajlaa imaLiStaZaPolicijskuKontrolu"/>
+
+  </service>
+</deployment>

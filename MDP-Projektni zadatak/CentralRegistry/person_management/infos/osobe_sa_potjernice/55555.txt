@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_202" class="java.beans.XMLDecoder">
+ <object class="org.unibl.etf.model.Person">
+  <void property="itOnTheWantedList">
+   <boolean>true</boolean>
+  </void>
+  <void property="jmbg">
+   <int>55555</int>
+  </void>
+  <void property="name">
+   <string>ime5</string>
+  </void>
+  <void property="surname">
+   <string>prezime5</string>
+  </void>
+ </object>
+</java>

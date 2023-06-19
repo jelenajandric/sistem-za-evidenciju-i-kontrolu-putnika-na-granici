@@ -1,0 +1,129 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\Users\Jelena\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\CommunicationSOAPServer\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="DataSenderr" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="dodajPodatkeZaSlanjeNaPolicijskuKontrolu" qname="ns1:dodajPodatkeZaSlanjeNaPolicijskuKontrolu" soapAction="" xmlns:ns1="http://sender.etf.unibl.org" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:idUlazaIzlaza" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns2:parameter qname="ns1:jmb" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns2:parameter qname="ns1:ime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns2:parameter qname="ns1:prezime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns2:operation>
+  <ns1:operation name="dodajPodatkeZaSlanjeNaCarinskuKontrolu" qname="ns2:dodajPodatkeZaSlanjeNaCarinskuKontrolu" soapAction="" xmlns:ns2="http://sender.etf.unibl.org">
+   <ns1:parameter qname="ns2:idUlazaIzlaza" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:jmb" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:ime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:prezime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:daLiJeNaPotjernici" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="imaLiStaZaTestnuAplikaciju" qname="ns3:imaLiStaZaTestnuAplikaciju" returnQName="ns3:imaLiStaZaTestnuAplikacijuReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://sender.etf.unibl.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:jmb" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="dodajPodatkeZaDodavanjeFajlovaa" qname="ns4:dodajPodatkeZaDodavanjeFajlovaa" soapAction="" xmlns:ns4="http://sender.etf.unibl.org">
+   <ns1:parameter qname="ns4:idUlazaIzlaza" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:jmb" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:podaci" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:filename" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="daLiPostojiTerminal" qname="ns5:daLiPostojiTerminal" soapAction="" xmlns:ns5="http://sender.etf.unibl.org">
+   <ns1:parameter qname="ns5:terminalName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="daLiPostojiAktivanUlazIzlaz" qname="ns6:daLiPostojiAktivanUlazIzlaz" soapAction="" xmlns:ns6="http://sender.etf.unibl.org">
+   <ns1:parameter qname="ns6:idUlazaIzlaza" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns6:idTerminala" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="imaLiStaZaTestnuAplikaciju dodajPodatkeZaSlanjeNaCarinskuKontrolu dodajPodatkeZaSlanjeNaPolicijskuKontrolu dodajPodatkeZaDodavanjeFajlovaa daLiPostojiTerminal daLiPostojiAktivanUlazIzlaz"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="DataSenderr"/>
+  <ns1:parameter name="className" value="org.unibl.etf.sender.DataSenderr"/>
+  <ns1:parameter name="wsdlServicePort" value="DataSenderr"/>
+  <ns1:parameter name="schemaQualified" value="http://sender.etf.unibl.org"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://sender.etf.unibl.org"/>
+  <ns1:parameter name="wsdlServiceElement" value="DataSenderrService"/>
+ </ns1:service>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="SomeStupidReceiver" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="dodajOdgovorOdPolicijskeKontrole" qname="ns7:dodajOdgovorOdPolicijskeKontrole" soapAction="" xmlns:ns7="http://receiver.etf.unibl.org">
+   <ns1:parameter qname="ns7:jmb" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns7:idUlazaIzlaza" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns7:daLiProlaziPolicijskuKontrolu" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="dodajOdgovorOdCarinskeKontrole" qname="ns8:dodajOdgovorOdCarinskeKontrole" soapAction="" xmlns:ns8="http://receiver.etf.unibl.org">
+   <ns1:parameter qname="ns8:jmb" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns8:idUlazaIzlaza" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns8:daLiProlaziCarinskuKontrolu" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="imaLiStaZaPolicijskuKontrolu" qname="ns9:imaLiStaZaPolicijskuKontrolu" returnQName="ns9:imaLiStaZaPolicijskuKontroluReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://receiver.etf.unibl.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:idITipUlazaIzlaza" type="xsd:string"/>
+  </ns1:operation>
+    <ns1:operation name="imaLiStaZaCarinskuKontrolu" qname="ns10:imaLiStaZaCarinskuKontrolu" returnQName="ns10:imaLiStaZaCarinskuKontroluReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://receiver.etf.unibl.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:idITipUlazaIzlaza" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="dodajOdgovorOdDodavanjaFajlaa" qname="ns11:dodajOdgovorOdDodavanjaFajlaa" soapAction="" xmlns:ns11="http://receiver.etf.unibl.org">
+   <ns1:parameter qname="ns11:jmb" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns11:idUlazaIzlaza" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns11:daLiJeDodatFajl" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+    <ns1:operation name="dodajOdgovorKadJeObustavaSaobracaja" qname="ns12:dodajOdgovorKadJeObustavaSaobracaja" soapAction="" xmlns:ns12="http://receiver.etf.unibl.org">
+   <ns1:parameter qname="ns12:jmb" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns12:idUlazaIzlaza" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns12:poruka" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="sendMultiRefs" value="false"/>
+  <ns1:parameter name="wsdlServicePort" value="SomeStupidReceiver"/>
+  <ns1:parameter name="schemaQualified" value="http://receiver.etf.unibl.org"/>
+  <ns1:parameter name="className" value="org.unibl.etf.receiver.SomeStupidReceiver"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="allowedMethods" value="dodajOdgovorOdPolicijskeKontrole dodajOdgovorOdCarinskeKontrole dodajOdgovorOdDodavanjaFajlaa imaLiStaZaPolicijskuKontrolu imaLiStaZaCarinskuKontrolu dodajOdgovorKadJeObustavaSaobracaja"/>
+  <ns1:parameter name="wsdlServiceElement" value="SomeStupidReceiverService"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://receiver.etf.unibl.org"/>
+  <ns1:parameter name="wsdlPortType" value="SomeStupidReceiver"/>
+  <ns1:parameter name="sendXsiTypes" value="false"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

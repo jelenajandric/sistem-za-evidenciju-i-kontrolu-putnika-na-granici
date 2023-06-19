@@ -1,0 +1,33 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from StartinggTestAppServiceService WSDL service -->
+
+  <service name="StartinggTestAppService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://communication.etf.unibl.org"/>
+      <parameter name="wsdlServiceElement" value="StartinggTestAppServiceService"/>
+      <parameter name="schemaQualified" value="http://communication.etf.unibl.org"/>
+      <parameter name="wsdlServicePort" value="StartinggTestAppService"/>
+      <parameter name="className" value="org.unibl.etf.communication.StartinggTestAppServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="StartinggTestAppService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="isTerminalExist" qname="operNS:isTerminalExist" xmlns:operNS="http://communication.etf.unibl.org" returnQName="retNS:isTerminalExistReturn" xmlns:retNS="http://communication.etf.unibl.org" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:terminalName" xmlns:pns="http://communication.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isEnteranceOrExitExistAndActive" qname="operNS:isEnteranceOrExitExistAndActive" xmlns:operNS="http://communication.etf.unibl.org" returnQName="retNS:isEnteranceOrExitExistAndActiveReturn" xmlns:retNS="http://communication.etf.unibl.org" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:entranceOrExitId" xmlns:pns="http://communication.etf.unibl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:terminalId" xmlns:pns="http://communication.etf.unibl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="isTerminalExist isEnteranceOrExitExistAndActive"/>
+
+  </service>
+</deployment>
